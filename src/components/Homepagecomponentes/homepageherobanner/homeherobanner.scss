@@ -1,0 +1,163 @@
+.home-herobanner-main {
+    position: relative;
+    height: 100vh;
+    box-sizing: border-box;
+
+    video {
+        height: calc(100vh - 184px);
+        width: 100%;
+        object-fit: cover;
+        box-sizing: border-box;
+        // opacity: .6;
+    }
+
+    .home-herobanner-main {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, .3);
+        z-index: 1;
+
+        .home-herobanner-content-main {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            z-index: 2;
+            width: 100%;
+
+            .home-herobanner-content {
+                .home-herobanner-title-div-main {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: end;
+                    color: #e3afbe;
+
+                    p {
+                        font-size: 13px;
+                        line-height: 23px;
+                        font-weight: 500;
+                        margin: 0 0 4px 0;
+                    }
+
+                    h1 {
+                        margin: 20px 0;
+                        font-size: 88px;
+                        font-weight: 700;
+                        line-height: .8;
+                        text-transform: uppercase;
+                        font-family: 'PP Neue Montreal', sans-serif;
+                        max-width: 1323px;
+                    }
+
+                    .home-herobanner-exoduslogo-main {
+
+                        span {
+                            display: flex;
+                            justify-content: end;
+                            align-items: center;
+                            gap: 8px;
+                            text-transform: uppercase;
+                            margin: 0 0 20px 0;
+                            font-size: 13px;
+                            font-weight: 500;
+                            line-height: 20px;
+                        }
+
+                    }
+                }
+
+                .home-herobanner-content-two {
+                    border-color: #e3afbe;
+                    border-style: solid;
+                    border-top-width: 1px;
+                    border-bottom-width: 1px;
+                    border-left-width: 0;
+                    border-right-width: 0;
+                    display: flex;
+                    flex-direction: row;
+                    width: 100%;
+                    color: #e3afbe;
+                    margin: 0 0 16px 0;
+
+                    .home-herobanner-content-two-pera {
+                        padding: 32px 0;
+                        width: 100%;
+                        border-right: 1px solid #e3afbe;
+
+                        p {
+                            max-width: 598px;
+                            font-size: 32px;
+                            font-weight: 500;
+                            line-height: 1;
+                            font-family: 'PP Neue Montreal', sans-serif;
+                        }
+
+                    }
+
+                    .home-herobanner-content-two-button-div-main {
+                        padding: 20px 32px 20px 40px;
+                        gap: 8px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        button {
+                            padding: 10px 24px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            gap: 6px;
+                            border-radius: 8px;
+                            font-size: 15px;
+                            font-weight: 500;
+                            line-height: 22px;
+                            font-family: "IBM Plex Mono", monospace;
+                            cursor: pointer;
+                            text-transform: uppercase;
+                            min-width: 180px;
+                            box-sizing: border-box;
+                            transition: .3s ease-in-out;
+                        }
+
+                        button:first-child {
+                            background-color: #e3afbe;
+                            color: #181818;
+                            border: 1px solid transparent;
+                            transition: .3s ease-in-out;
+
+                            &:hover {
+                                transition: .3s ease-in-out;
+                                background-color: #fff;
+                            }
+                        }
+
+                        button:last-child {
+                            background-color: transparent;
+                            color: #e3afbe;
+                            border: 1px solid #e3afbe;
+                            transition: .3s ease-in-out;
+
+                            &:hover {
+                                background-color: #e3afbe;
+                                color: #181818;
+                                transition: .3s ease-in-out;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+    .heroabnner-bac-two {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 184px;
+        background-color: #181818;
+    }
+}
