@@ -1,5 +1,3 @@
-![Screenshot_27-5-2024_182757_bounce-infinity vercel app](https://github.com/krishvaghasiya705/bounce-infinity/assets/146411007/b7f8742b-7c83-44b4-8477-0d9b6665940a)
-
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -11,7 +9,7 @@ In the project directory, you can run:
 ### `npm start`
 
 Runs the app in the development mode.\
-Open [https://bounce-infinit.netlify.app/](https://bounce-infinity.vercel.app/) to view it in your browser.
+Open [https://passkey-wallet.netlify.app/](https://passkey-wallet.netlify.app/) to view it in your browser.
 
 
 The page will reload when you make changes.\
