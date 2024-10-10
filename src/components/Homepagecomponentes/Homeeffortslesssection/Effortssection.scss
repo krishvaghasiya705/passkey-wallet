@@ -1,7 +1,6 @@
 .home-efforts-section-main {
-    padding: 40px 0 64px;
+    padding: 2vw 0 3vw;
     position: relative;
-    // margin: 0 0  800px 0;
 
     &::before {
         content: "";
@@ -9,109 +8,179 @@
         top: 0;
         left: 50%;
         transform: translateX(-50%);
-        width: calc(100% - 80px);
+        width: calc(100% - 4vw);
         height: 1px;
         background-color: #e3afbe;
     }
 
     .home-efforts-content {
-        padding: 0 0 96px 0;
+        padding: 0 0 5vw 0;
         color: #e3afbe;
 
         span {
-            font-size: 13px;
-            line-height: 23px;
+            font-size: 0.9vw;
+            line-height: 1.6;
             font-weight: 500;
-            margin: 0 0 4px 0;
+            margin: 0 0 0.2vw 0;
             text-transform: uppercase;
         }
 
         h2 {
-            font-size: 80px;
+            font-size: 5vw;
             font-weight: 700;
             line-height: .8;
             text-transform: uppercase;
             font-family: 'PP Neue Montreal', sans-serif;
-            padding: 24px 0 40px;
+            padding: 1.2vw 0 2vw;
         }
 
         p {
-            font-size: 32px;
+            font-size: 2vw;
             font-weight: 500;
             line-height: 1;
             font-family: 'PP Neue Montreal', sans-serif;
-            max-width: 610px;
+            max-width: 38vw;
         }
     }
 
     .home-efforts-section-slider-main-alignment {
-        margin: 0 40px 0 -73px;
-        // margin: 0 40px 0 -73px;
-        width: calc(100% + 120px);
+        margin: 0 2vw 0 -3.65vw;
+        width: calc(100% + 6vw);
         overflow: hidden;
 
         .home-efforts-section-slider-main {
             display: flex;
-            gap: 16px;
-            // padding: 24px 40px;
-            padding: 24px 80px;
+            gap: 1vw;
+            padding: 1.2vw 4vw;
             width: max-content;
 
             .home-efforts-card-main {
-                padding: 24px;
+                padding: 1.2vw;
                 background-color: #FFFFFF;
-                border-radius: 32px;
+                border-radius: 1.6vw;
                 display: flex;
                 flex-direction: column;
                 height: 100%;
-                min-width: 632px;
-                width: 100%;
+                min-width: 31vw;
+                max-width: 31vw;
                 box-sizing: border-box;
                 color: #000;
                 flex-shrink: 0;
 
                 .home-efforts-card-image {
                     width: 100%;
-                    height: 360px;
-                    border-radius: 20px;
+                    height: 18vw;
+                    border-radius: 1vw;
                     overflow: hidden;
-                    margin: 0 0 32px 0;
+                    margin: 0 0 1.6vw 0;
 
                     video {
                         width: 100%;
                         height: 100%;
                         object-fit: cover;
-                        border-radius: 20px;
+                        border-radius: 1vw;
                     }
                 }
 
                 h3 {
-                    margin: 0 0 40px 0;
-                    font-size: 32px;
+                    margin: 0 0 2vw 0;
+                    font-size: 1.6vw;
                     font-weight: 500;
                     line-height: 1.1;
                     font-family: 'PP Neue Montreal', sans-serif;
                 }
 
                 p {
-                    margin: 0 0 40px 0;
-                    font-size: 24px;
+                    margin: 0 0 2vw 0;
+                    font-size: 1.2vw;
                     font-weight: 400;
                     line-height: 1.1;
                     font-family: 'PP Neue Montreal', sans-serif;
-                    max-width: 574px;
+                    max-width: 28.7vw;
                 }
 
                 .learn-more-button {
                     display: flex;
                     justify-content: start;
                     align-items: center;
-                    gap: 8px;
+                    gap: 0.4vw;
                     color: #000;
                     text-transform: uppercase;
-                    font-size: 15px;
+                    font-size: 0.75vw;
                     line-height: 1.1;
                     font-weight: 500;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .home-efforts-section-main {
+        .home-efforts-content {
+            h2 {
+                font-size: 6vw;
+            }
+            p {
+                font-size: 2.5vw;
+                max-width: 50vw;
+            }
+        }
+
+        .home-efforts-section-slider-main-alignment {
+            .home-efforts-section-slider-main {
+                .home-efforts-card-main {
+                    min-width: 45vw;
+                    max-width: 45vw;
+
+                    h3 {
+                        font-size: 2.2vw;
+                    }
+
+                    p {
+                        font-size: 1.8vw;
+                        max-width: 40vw;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .home-efforts-section-main {
+        .home-efforts-content {
+            h2 {
+                font-size: 8vw;
+            }
+            p {
+                font-size: 3.5vw;
+                max-width: 70vw;
+            }
+        }
+
+        .home-efforts-section-slider-main-alignment {
+            .home-efforts-section-slider-main {
+                .home-efforts-card-main {
+                    min-width: 70vw;
+                    max-width: 70vw;
+
+                    .home-efforts-card-image {
+                        height: 40vw;
+                    }
+
+                    h3 {
+                        font-size: 3.5vw;
+                    }
+
+                    p {
+                        font-size: 2.8vw;
+                        max-width: 60vw;
+                    }
+
+                    .learn-more-button {
+                        font-size: 1.2vw;
+                    }
                 }
             }
         }
