@@ -73,3 +73,22 @@ img {
   max-width: 1806px;
   margin: 0 auto;
 }
+
+.header-container {
+  max-width: 1823px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+.footer-container {
+  max-width: 1823px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+
+.gsap-marker-end,
+.gsap-marker-start,
+.gsap-marker-scroller-end,
+.gsap-marker-scroller-start {
+  display: none !important;
+}

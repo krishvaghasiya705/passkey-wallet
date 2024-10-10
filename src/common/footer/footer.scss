@@ -1,0 +1,145 @@
+footer {
+    position: relative;
+    z-index: 2;
+    padding: 12px;
+    margin: 200px 0 0 0;
+
+    .footer-backgoerund-main {
+        padding: 44px 32px 32px;
+        background-color: #e3afbe;
+        border-radius: 16px;
+
+        .footer-content-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            border-bottom: 1px solid #000;
+            color: #181818;
+
+            h1 {
+                font-size: 56px;
+                font-weight: 500;
+                line-height: .95;
+                max-width: 1186px;
+                font-family: 'PP Neue Montreal', sans-serif;
+            }
+
+            p {
+                padding: 40px 0;
+                font-size: 32px;
+                font-weight: 500;
+                line-height: 1;
+                max-width: 780px;
+                font-family: 'PP Neue Montreal', sans-serif;
+            }
+
+            .footer-buttons-div {
+                display: flex;
+                justify-content: end;
+                align-items: center;
+                gap: 8px;
+                padding: 40px 0 40px 24px;
+
+                button {
+                    text-transform: uppercase;
+                    text-decoration-line: none;
+                    outline: none;
+                    padding: 0 24px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 8px;
+                    font-size: 15px;
+                    font-weight: 500;
+                    line-height: 1;
+                    border-radius: 8px;
+                    height: 44px;
+                    font-family: "IBM Plex Mono", monospace;
+                    cursor: pointer;
+                }
+
+                a:first-child {
+                    button {
+                        background-color: #181818;
+                        color: #fff;
+                        border: 1px solid #181818;
+                        transition: .3s ease-in-out;
+
+                        &:hover {
+                            transition: .3s ease-in-out;
+                            background-color: #fff;
+                            border-color: #fff;
+                            color: #181818;
+                        }
+                    }
+                }
+
+                a:last-child {
+
+                    button {
+                        transition: .3s ease-in-out;
+                        background-color: #e3afbe;
+                        color: #181818;
+                        border: 1px solid #181818;
+
+                        &:hover {
+                            transition: .3s ease-in-out;
+                            background-color: #181818;
+                            border-color: #181818;
+                            color: #FFF;
+                        }
+                    }
+                }
+            }
+        }
+
+        .footer-last-content {
+            padding: 24px 0 0 0;
+
+            .footer-last-content-flx {
+                display: flex;
+                justify-content: space-between;
+                align-items: end;
+
+                .footer-logo {
+                    width: 25%;
+
+                    svg {
+                        min-width: 210px;
+                    }
+                }
+
+                .footer-last-content-pera-main {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    width: 75%;
+
+                    span {
+                        font-size: 16px;
+                        font-weight: 400;
+                        line-height: 1.1;
+                        color: #181818;
+                        font-family: 'PP Neue Montreal', sans-serif;
+                    }
+
+                    .footer-last-content-pera-main-links {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        width: 100%;
+                        max-width: 440px;
+
+                        a {
+                            font-size: 15px;
+                            font-weight: 400;
+                            line-height: 1.1;
+                            color: #181818;
+                            font-family: 'PP Neue Montreal', sans-serif;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

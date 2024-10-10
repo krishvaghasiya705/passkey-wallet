@@ -44,21 +44,17 @@
     }
 
     .home-efforts-section-slider-main-alignment {
+        margin: 0 40px 800px -73px;
+        // margin: 0 40px 0 -73px;
         width: calc(100% + 120px);
-        margin: 0 40px 0 -73px;
-        // width: calc(100% + 80px);
-        // margin: 0 40px 0 0;
-        // margin: 0 40px 0 -40px;
+        overflow: hidden;
 
         .home-efforts-section-slider-main {
-            // width: calc(100% + 56px);
-            width: 100%;
-            padding: 24px 40px;
-            margin: 0 16px; 
-            overflow-x: auto;
             display: flex;
             gap: 16px;
-            box-sizing: border-box;
+            // padding: 24px 40px;
+            padding: 24px 80px;
+            width: max-content;
 
             .home-efforts-card-main {
                 padding: 24px;
@@ -71,6 +67,7 @@
                 width: 100%;
                 box-sizing: border-box;
                 color: #000;
+                flex-shrink: 0;
 
                 .home-efforts-card-image {
                     width: 100%;

@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import "./Effortssection.scss"
 import { Link } from 'react-router-dom'
 import Growicon from './../../../assets/svg/Growicon';
@@ -7,10 +9,41 @@ import Featurevideo2 from "../../../assets/video/feature-video2.mp4"
 import Featurevideo3 from "../../../assets/video/feature-video3.mp4"
 import Featurevideo4 from "../../../assets/video/feature-video4.mp4"
 
+gsap.registerPlugin(ScrollTrigger)
+
 export default function Homeffortssection() {
+    const sliderRef = useRef(null)
+    const containerRef = useRef(null)
+
+    useEffect(() => {
+        const slider = sliderRef.current
+        const container = containerRef.current
+
+        let tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: container,
+                pin: true,
+                start: "10% top",
+                end: () => `+=${slider.offsetWidth - window.innerWidth}`,
+                scrub: 1,
+                anticipatePin: 1,
+                markers: true,
+            }
+        })
+
+        tl.to(slider, {
+            x: () => -(slider.offsetWidth - window.innerWidth),
+            ease: "none",
+        })
+
+        return () => {
+            tl.kill()
+            ScrollTrigger.getAll().forEach(st => st.kill())
+        }
+    }, [])
 
     return (
-        <div className='home-efforts-section-main'>
+        <div className='home-efforts-section-main' ref={containerRef}>
             <div className='container2'>
                 <div className='home-efforts-content'>
                     <span>[006. For developers]</span>
@@ -20,7 +53,7 @@ export default function Homeffortssection() {
             </div>
             <div className='container3'>
                 <div className='home-efforts-section-slider-main-alignment'>
-                    <div className='home-efforts-section-slider-main'>
+                    <div className='home-efforts-section-slider-main' ref={sliderRef}>
                         <Link to={"/"}>
                             <div className='home-efforts-card-main'>
                                 <div className='home-efforts-card-image'>
