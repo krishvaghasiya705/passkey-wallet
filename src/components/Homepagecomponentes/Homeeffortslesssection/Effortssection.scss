@@ -1,6 +1,7 @@
 .home-efforts-section-main {
     padding: 40px 0 64px;
     position: relative;
+    // margin: 0 0  800px 0;
 
     &::before {
         content: "";
@@ -44,7 +45,7 @@
     }
 
     .home-efforts-section-slider-main-alignment {
-        margin: 0 40px 800px -73px;
+        margin: 0 40px 0 -73px;
         // margin: 0 40px 0 -73px;
         width: calc(100% + 120px);
         overflow: hidden;
