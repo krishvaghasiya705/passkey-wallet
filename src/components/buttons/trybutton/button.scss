@@ -1,0 +1,26 @@
+.try-demo-button {
+    margin-top: 40px;
+    width: fit-content;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        font-size: 15px;
+        font-weight: 500;
+        line-height: 1;
+        color: #e3afbe;
+        text-transform: uppercase;
+        transition: .3s ease-in-out;
+
+        &:hover {
+            transition: .3s ease-in-out;
+            color: #FFF;
+        }
+    }
+}

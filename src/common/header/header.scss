@@ -5,28 +5,63 @@ header {
     z-index: 9;
     width: 100%;
     padding: 25px 0;
-  
+
     .header-container {
         max-width: 1823px;
         margin: 0 auto;
         padding: 0 40px;
     }
-  
+
     .header-alignment {
         display: flex;
         justify-content: space-between;
         align-items: center;
-  
+
         .header-logo {
+            .logo-container {
+                position: relative;
+                width: 209px;
+                height: 30px;
+                overflow: hidden;
+
+                .default-logo,
+                .scrolled-logo {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    transition: transform 0.5s ease-in-out;
+                }
+
+                .scrolled-logo {
+                    transform: translateY(100%);
+
+                    svg {
+                        path:last-child {
+                            display: none;
+                        }
+                    }
+                }
+
+                &.scrolled {
+                    .default-logo {
+                        transform: translateY(-100%);
+                    }
+
+                    .scrolled-logo {
+                        transform: translateY(0);
+                    }
+                }
+            }
+
             svg {
                 fill: #e3afbe;
             }
         }
-  
+
         .header-centered-switch {
             padding: 2px;
-            background: rgba(77, 77, 77, .3);
-            border: 1px solid hsla(0, 0%, 100%, .15);
+            background: rgba(77, 77, 77, 0.3);
+            border: 1px solid hsla(0, 0%, 100%, 0.15);
             border-radius: 11px;
             backdrop-filter: blur(10px);
             height: 32px;
@@ -37,7 +72,7 @@ header {
             gap: 0;
             position: relative;
             overflow: hidden;
-  
+
             .header-centered-switch-button {
                 padding: 0 24px;
                 height: 100%;
@@ -46,12 +81,12 @@ header {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                transition: .3s ease-in-out;
+                transition: 0.3s ease-in-out;
                 position: relative;
                 z-index: 2;
-                
+
                 span {
-                    transition: .3s ease-in-out;
+                    transition: 0.3s ease-in-out;
                     text-transform: uppercase;
                     display: block;
                     font-size: 13px;
@@ -60,12 +95,12 @@ header {
                     color: #e3afbe;
                     cursor: pointer;
                 }
-  
+
                 &.active span {
                     color: #181818;
                 }
             }
-  
+
             .slider {
                 position: absolute;
                 top: 2px;
@@ -78,13 +113,13 @@ header {
                 z-index: 1;
             }
         }
-  
+
         .header-links {
             display: flex;
             justify-content: end;
             align-items: center;
             gap: 24px;
-  
+
             a,
             button {
                 text-transform: uppercase;
@@ -98,23 +133,23 @@ header {
                 align-items: center;
                 font-family: "IBM Plex Mono", monospace !important;
             }
-  
+
             a {
                 position: relative;
-                transition: .3s ease-in-out;
-  
+                transition: 0.3s ease-in-out;
+
                 &:hover {
-                    transition: .3s ease-in-out;
+                    transition: 0.3s ease-in-out;
                     color: #fff;
-  
+
                     &::after {
-                        transition: .3s ease-in-out;
+                        transition: 0.3s ease-in-out;
                         opacity: 1;
                     }
                 }
-  
+
                 &::after {
-                    transition: .3s ease-in-out;
+                    transition: 0.3s ease-in-out;
                     position: absolute;
                     bottom: 7px;
                     left: 0;
@@ -125,7 +160,7 @@ header {
                     opacity: 0;
                 }
             }
-  
+
             button {
                 background-color: #e3afbe;
                 border: none;
@@ -134,13 +169,13 @@ header {
                 padding: 0 16px;
                 border-radius: 8px;
                 cursor: pointer;
-                transition: .3s ease-in-out;
-  
+                transition: 0.3s ease-in-out;
+
                 &:hover {
-                    transition: .3s ease-in-out;
+                    transition: 0.3s ease-in-out;
                     background-color: #fff;
                 }
             }
         }
     }
-  }
+}

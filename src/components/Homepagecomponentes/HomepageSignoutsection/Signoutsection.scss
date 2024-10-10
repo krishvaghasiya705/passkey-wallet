@@ -1,0 +1,82 @@
+.home-signout-section-main {
+    margin: 160px 0 264px;
+
+    .home-signout-fl-main {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+
+        .home-signout-text-main {
+            width: 60%;
+
+            span {
+                font-size: 13px;
+                line-height: 23px;
+                font-weight: 500;
+                margin: 0 0 4px 0;
+                color: #e3afbe;
+            }
+
+            .home-signout-text-pera-main {
+
+                p {
+                    padding: 24px 0 80px;
+                    font-size: 88px;
+                    font-weight: 500;
+                    line-height: 1;
+                    font-family: 'PP Neue Montreal', sans-serif;
+                    max-width: 1083px;
+                    color: #78787840;
+
+                    span {
+                        font-size: 88px;
+                        font-weight: 500;
+                        line-height: 1;
+                        font-family: 'PP Neue Montreal', sans-serif;
+                    }
+                }
+            }
+
+            .home-signout-mrkers-div-main {
+                display: flex;
+                flex-direction: column;
+                gap: 40px;
+                align-items: start;
+                margin: 56px 0 32px;
+
+                .home-signout-mrkers-div {
+                    display: flex;
+                    justify-content: start;
+                    align-items: start;
+                    gap: 12px;
+
+                    svg {
+                        width: 24px;
+                        height: 24px;
+                        flex-shrink: 0;
+                        fill: #787878;
+                    }
+
+                    p {
+                        font-size: 32px;
+                        font-weight: 500;
+                        line-height: 1;
+                        font-family: 'PP Neue Montreal', sans-serif;
+                        color: #787878;
+                    }
+                }
+            }
+        }
+
+        .home-signout-video-main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40%;
+
+            video {
+                max-width: 400px;
+            }
+        }
+    }
+}

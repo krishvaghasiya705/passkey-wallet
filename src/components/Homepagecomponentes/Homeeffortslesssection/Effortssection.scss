@@ -1,0 +1,121 @@
+.home-efforts-section-main {
+    padding: 40px 0 64px;
+    position: relative;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: calc(100% - 80px);
+        height: 1px;
+        background-color: #e3afbe;
+    }
+
+    .home-efforts-content {
+        padding: 0 0 96px 0;
+        color: #e3afbe;
+
+        span {
+            font-size: 13px;
+            line-height: 23px;
+            font-weight: 500;
+            margin: 0 0 4px 0;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            font-size: 80px;
+            font-weight: 700;
+            line-height: .8;
+            text-transform: uppercase;
+            font-family: 'PP Neue Montreal', sans-serif;
+            padding: 24px 0 40px;
+        }
+
+        p {
+            font-size: 32px;
+            font-weight: 500;
+            line-height: 1;
+            font-family: 'PP Neue Montreal', sans-serif;
+            max-width: 610px;
+        }
+    }
+
+    .home-efforts-section-slider-main-alignment {
+        width: calc(100% + 120px);
+        margin: 0 40px 0 -73px;
+        // width: calc(100% + 80px);
+        // margin: 0 40px 0 0;
+        // margin: 0 40px 0 -40px;
+
+        .home-efforts-section-slider-main {
+            // width: calc(100% + 56px);
+            width: 100%;
+            padding: 24px 40px;
+            margin: 0 16px; 
+            overflow-x: auto;
+            display: flex;
+            gap: 16px;
+            box-sizing: border-box;
+
+            .home-efforts-card-main {
+                padding: 24px;
+                background-color: #FFFFFF;
+                border-radius: 32px;
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+                min-width: 632px;
+                width: 100%;
+                box-sizing: border-box;
+                color: #000;
+
+                .home-efforts-card-image {
+                    width: 100%;
+                    height: 360px;
+                    border-radius: 20px;
+                    overflow: hidden;
+                    margin: 0 0 32px 0;
+
+                    video {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        border-radius: 20px;
+                    }
+                }
+
+                h3 {
+                    margin: 0 0 40px 0;
+                    font-size: 32px;
+                    font-weight: 500;
+                    line-height: 1.1;
+                    font-family: 'PP Neue Montreal', sans-serif;
+                }
+
+                p {
+                    margin: 0 0 40px 0;
+                    font-size: 24px;
+                    font-weight: 400;
+                    line-height: 1.1;
+                    font-family: 'PP Neue Montreal', sans-serif;
+                    max-width: 574px;
+                }
+
+                .learn-more-button {
+                    display: flex;
+                    justify-content: start;
+                    align-items: center;
+                    gap: 8px;
+                    color: #000;
+                    text-transform: uppercase;
+                    font-size: 15px;
+                    line-height: 1.1;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+}

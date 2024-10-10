@@ -1,0 +1,113 @@
+.unlock-liquidity-main {
+    position: relative;
+    background-color: rgb(121 121 121);
+
+    .roack-image-main {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        justify-content: start;
+        align-items: start;
+
+        img {
+            rotate: 180deg;
+            width: 60%;
+            height: 95%;
+        }
+    }
+
+    .unlock-liquidity-content-main {
+        position: relative;
+        z-index: 1;
+        padding: 144px 0 320px;
+
+        .unlock-liquidity-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+
+            .unlock-liquidity-content-main-div {
+                color: #e3afbe;
+
+                span {
+                    font-size: 13px;
+                    line-height: 23px;
+                    font-weight: 500;
+                    margin: 0 0 4px 0;
+                }
+
+                h2 {
+                    font-size: 80px;
+                    font-weight: 700;
+                    line-height: .8;
+                    text-transform: uppercase;
+                    font-family: 'PP Neue Montreal', sans-serif;
+                    padding: 24px 0 40px;
+                    max-width: 630px;
+                }
+
+                p {
+                    font-size: 32px;
+                    font-weight: 500;
+                    line-height: 1;
+                    font-family: 'PP Neue Montreal', sans-serif;
+                    max-width: 630px;
+                }
+            }
+
+            .unlock-liquidity-video {
+                width: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                video {
+                    max-width: 640px;
+                }
+            }
+        }
+    }
+
+    .unlock-liquidity-content-mainsc {
+        padding: 80px 0 176px;
+        position: relative;
+        z-index: 1;
+
+        .one-wallet-section-main {
+            display: flex;
+            justify-content: end;
+            align-items: start;
+
+            .one-wallet-content {
+                color: #e3afbe;
+
+                span {
+                    font-size: 13px;
+                    line-height: 23px;
+                    font-weight: 500;
+                    margin: 0 0 4px 0;
+                    text-transform: uppercase;
+                }
+
+                h2 {
+                    font-size: 80px;
+                    font-weight: 700;
+                    line-height: .8;
+                    text-transform: uppercase;
+                    font-family: 'PP Neue Montreal', sans-serif;
+                    padding: 24px 0 40px;
+                    max-width: 630px;
+                }
+
+                p {
+                    font-size: 32px;
+                    font-weight: 500;
+                    line-height: 1;
+                    font-family: 'PP Neue Montreal', sans-serif;
+                    max-width: 905px;
+                }
+            }
+        }
+    }
+}
