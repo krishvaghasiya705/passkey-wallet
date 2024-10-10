@@ -254,37 +254,50 @@ export default function Homesignout() {
             element.innerHTML = words.map(word => `<span>${word}</span>`).join(" ");
         };
 
-        // Split the text into individual words
+        // Split text into words for both paragraphs
         splitTextIntoWords(textRef1.current);
         splitTextIntoWords(textRef2.current);
 
-        const animateWords = (textElement) => {
-            const words = textElement.querySelectorAll("span");
-            gsap.set(words, { opacity: 0, y: 50 });
+        // Create a GSAP timeline for sequential animations
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: textRef1.current,
+                start: "top 80%",   // Animation starts when the element reaches 80% of the viewport height
+                end: "bottom 20%",
+                scrub: true,        // Smooth scrolling animation
+            }
+        });
 
-            gsap.to(words, {
+        // Animate words of the first paragraph
+        tl.fromTo(
+            textRef1.current.querySelectorAll("span"),
+            { opacity: 0, y: 50 },  // Start state
+            {
                 opacity: 1,
                 y: 0,
                 duration: 0.5,
                 stagger: 0.05,
-                scrollTrigger: {
-                    trigger: textElement,
-                    start: "top 80%",  // Each paragraph animates when it reaches 80% of the viewport height
-                    end: "bottom 20%",
-                    scrub: true,
-                },
-            });
-        };
+                ease: "power3.out", // Smooth easing
+            }
+        );
 
-        // Animate words for both text blocks independently
-        animateWords(textRef1.current);  // First paragraph words animation
-        animateWords(textRef2.current);  // Second paragraph words animation
+        // Chain the second paragraph animation after the first finishes
+        tl.fromTo(
+            textRef2.current.querySelectorAll("span"),
+            { opacity: 0, y: 50 },  // Start state for the second paragraph
+            {
+                opacity: 1,
+                y: 0,
+                duration: 0.5,
+                stagger: 0.05,
+                ease: "power3.out",
+            },
+            "+=0.2"  // Delay between the animations
+        );
 
-        const marker1 = markerRef1.current;
-        const marker2 = markerRef2.current;
-        const marker3 = markerRef3.current;
-
-        [marker1, marker2, marker3].forEach((marker) => {
+        // Animate markers
+        const markers = [markerRef1.current, markerRef2.current, markerRef3.current];
+        markers.forEach((marker, index) => {
             gsap.to(marker.querySelector('p'), {
                 color: "#e3afbe",
                 duration: 1,
@@ -328,8 +341,7 @@ export default function Homesignout() {
                             </div>
                             <div className="home-signout-mrkers-div" ref={markerRef2}>
                                 <Trueicon />
-                                <p>No seed phrase, no browser extension, and no email verification required.
-                                </p>
+                                <p>No seed phrase, no browser extension, and no email verification required.</p>
                             </div>
                             <div className="home-signout-mrkers-div" ref={markerRef3}>
                                 <Trueicon />
