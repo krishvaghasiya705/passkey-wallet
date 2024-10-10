@@ -4,6 +4,7 @@ import router from './routes';
 // import CustomCursor from './components/cursor/CustomCursor';
 
 function App() {
+
   return (
     <>
       {/* <CustomCursor /> */}
