@@ -10,11 +10,19 @@ export default function Home() {
   return (
     <div>
       <Homepageherobanner />
-      <Homesignout />
-      <Frictionlesssection />
-      <Unlocliquidity />
-      <Homefocussection />
-      <Homeffortssection />
+
+      {/* Users section */}
+      <div className="users-section">
+        <Homesignout />
+        <Frictionlesssection />
+        <Unlocliquidity />
+      </div>
+
+      {/* Developers section */}
+      <div className="devs-section">
+        <Homefocussection />
+        <Homeffortssection />
+      </div>
     </div>
   )
 }

@@ -1,14 +1,19 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import "./header.scss"
 import Logo from '../../assets/svg/logo'
 import { Link } from 'react-router-dom'
 
 function Header() {
-  const [activeSwitch, setActiveSwitch] = useState('users')
+  const [activeSwitch, setActiveSwitch] = useState(null)
   const [scrolled, setScrolled] = useState(false)
+  const observerRef = useRef(null)
 
   const handleSwitchClick = (type) => {
     setActiveSwitch(type)
+    const section = document.querySelector(`.${type}-section`)
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' })
+    }
   }
 
   useEffect(() => {
@@ -17,30 +22,46 @@ function Header() {
       if (isScrolled !== scrolled) {
         setScrolled(isScrolled)
       }
-
-      // Check if user has scrolled to the users section (Signout section)
-      const usersSection = document.querySelector('.home-signout-section-main')
-      // Add a new selector for the devs section (you may need to adjust this based on your actual markup)
-      const devsSection = document.querySelector('.devs-section')
-
-      if (usersSection && devsSection) {
-        const usersSectionRect = usersSection.getBoundingClientRect()
-        const devsSectionRect = devsSection.getBoundingClientRect()
-
-        if (usersSectionRect.top <= window.innerHeight && usersSectionRect.bottom >= 0) {
-          setActiveSwitch('users')
-        } else if (devsSectionRect.top <= window.innerHeight && devsSectionRect.bottom >= 0) {
-          setActiveSwitch('devs')
-        }
-      }
     }
+
+    const observerCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          if (entry.target.classList.contains('users-section')) {
+            setActiveSwitch('users')
+          } else if (entry.target.classList.contains('devs-section')) {
+            setActiveSwitch('devs')
+          }
+        } else {
+          if ((entry.target.classList.contains('users-section') && activeSwitch === 'users') ||
+              (entry.target.classList.contains('devs-section') && activeSwitch === 'devs')) {
+            setActiveSwitch(null)
+          }
+        }
+      })
+    }
+
+    observerRef.current = new IntersectionObserver(observerCallback, {
+      root: null,
+      rootMargin: '-50% 0px -50% 0px',
+      threshold: 0,
+    })
+
+    const usersSection = document.querySelector('.users-section')
+    const devsSection = document.querySelector('.devs-section')
+
+    if (usersSection) observerRef.current.observe(usersSection)
+    if (devsSection) observerRef.current.observe(devsSection)
 
     window.addEventListener('scroll', handleScroll)
 
     return () => {
       window.removeEventListener('scroll', handleScroll)
+      if (observerRef.current) {
+        observerRef.current.disconnect()
+      }
     }
-  }, [scrolled])
+  }, [scrolled, activeSwitch])
 
   return (
     <header>
@@ -71,7 +92,7 @@ function Header() {
             >
               <span>for devs</span>
             </div>
-            <div className='slider' style={{ transform: `translateX(${activeSwitch === 'devs' ? '100%' : '0'})` }}></div>
+            <div className='slider' style={{ transform: `translateX(${activeSwitch === 'devs' ? '100%' : activeSwitch === 'users' ? '0' : '-120%'})` }}></div>
           </div>
           <div className='header-links'>
             <Link to={"/"}>developer docs</Link>
