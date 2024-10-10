@@ -23,9 +23,9 @@ export default function Homeffortssection() {
             scrollTrigger: {
                 trigger: container,
                 pin: true,
-                // start: "10% top",
+                start: "10% top",
                 // start: "top top",
-                start: "5% top",
+                // start: "5% top",
                 end: () => `+=${slider.offsetWidth - window.innerWidth}`,
                 scrub: 1,
                 anticipatePin: 1,
