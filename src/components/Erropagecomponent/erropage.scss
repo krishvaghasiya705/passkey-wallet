@@ -75,7 +75,7 @@
     z-index: 9999;
     mix-blend-mode: difference;
     transform: translate(-50%, -50%);
-    transition: width 0.3s ease-out, height 0.3s ease-out, background-color 0.3s ease-out, scale 0.3s ease-out;
+    transition: width 0.3s ease-out, height 0.3s ease-out, background-color 0.3s ease-out;
 }
 
 .custom-cursor-bg {
@@ -89,7 +89,7 @@
     pointer-events: none;
     z-index: 9998;
     transform: translate(-50%, -50%);
-    transition: width 0.3s ease-out, height 0.3s ease-out, background-color 0.3s ease-out, scale 0.3s ease-out;
+    transition: width 0.3s ease-out, height 0.3s ease-out, background-color 0.3s ease-out;
 }
 
 .bubble-text {

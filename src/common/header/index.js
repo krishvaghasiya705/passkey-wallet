@@ -100,12 +100,17 @@ function Header() {
     }
   }, [])
 
+  const handleLinkClick = (e, path) => {
+    e.preventDefault();
+    window.location.href = path;
+  }
+
   return (
     <header>
       <div className='header-container'>
         <div className='header-alignment'>
           <div className='header-logo'>
-            <NavLink to={"/"}>
+            <a href="/" onClick={(e) => handleLinkClick(e, '/')}>
               <div className={`logo-container ${scrolled ? 'scrolled' : ''}`}>
                 <div className="default-logo">
                   <Logo />
@@ -116,7 +121,7 @@ function Header() {
                   </div>
                 </div>
               </div>
-            </NavLink>
+            </a>
           </div>
           {location.pathname !== '/playground' && (
             <div className='header-centered-switch'>
@@ -136,8 +141,8 @@ function Header() {
             </div>
           )}
           <div className='header-links'>
-            <NavLink to={"/developer"}>developer docs</NavLink>
-            <NavLink to={"/playground"}>playground</NavLink>
+            <a href="/developer" onClick={(e) => handleLinkClick(e, '/developer')}>developer docs</a>
+            <a href="/playground" onClick={(e) => handleLinkClick(e, '/playground')}>playground</a>
             <button type='button'>Get Access</button>
           </div>
         </div>
