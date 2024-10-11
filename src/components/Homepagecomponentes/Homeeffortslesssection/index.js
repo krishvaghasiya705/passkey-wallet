@@ -23,7 +23,6 @@ export default function Homeffortssection() {
             scrollTrigger: {
                 trigger: container,
                 pin: true,
-                pinSpacing: true,
                 start: "top top",
                 end: () => `+=${slider.offsetWidth - window.innerWidth}`,
                 scrub: 1,
