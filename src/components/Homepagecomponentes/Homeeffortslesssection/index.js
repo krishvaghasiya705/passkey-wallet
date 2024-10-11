@@ -23,16 +23,16 @@ export default function Homeffortssection() {
             scrollTrigger: {
                 trigger: container,
                 pin: true,
-                start: "top top",
-                end: () => `+=${slider.offsetWidth - window.innerWidth}`,
+                start: "30% top",
+                end: () => `+=${slider.scrollWidth - window.innerWidth}`,
                 scrub: 1,
                 anticipatePin: 1,
-                invalidateOnRefresh: true,
+                // markers: true, // Remove this in production
             }
         })
 
         tl.to(slider, {
-            x: () => -(slider.offsetWidth - window.innerWidth),
+            x: () => -(slider.scrollWidth - window.innerWidth),
             ease: "none",
         })
 
