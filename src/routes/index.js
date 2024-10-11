@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import DefaultLayout from "./defaultLayout";
 import Home from "../module/home";
 import Playfround from "../module/playground";
+import Erropage from "../module/Erropage";
 
 const router = createBrowserRouter([
     {
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
                 element: <Playfround />
             }
         ]
+    },
+    {
+        path: "*",
+        element: <Erropage />
     }
 ])
 
