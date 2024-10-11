@@ -157,11 +157,12 @@ header {
 
                 &.active {
                     transition: 0.3s ease-in-out;
-                    color: #fff;
+                    color: #e3afbe;
 
                     &::after {
                         transition: 0.3s ease-in-out;
                         opacity: 1;
+                        background-color: #e3afbe;
                     }
                 }
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import "./header.scss"
 import Logo from '../../assets/svg/logo'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 import ScrolledLogo from '../../assets/svg/scrolledlogo'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -13,6 +13,7 @@ function Header() {
   const [scrolled, setScrolled] = useState(false)
   const observerRef = useRef(null)
   const svgRef = useRef(null)
+  const location = useLocation()
 
   const handleSwitchClick = (type) => {
     setActiveSwitch(type)
@@ -117,21 +118,23 @@ function Header() {
               </div>
             </NavLink>
           </div>
-          <div className='header-centered-switch'>
-            <div
-              className={`header-centered-switch-button ${activeSwitch === 'users' ? 'active' : ''}`}
-              onClick={() => handleSwitchClick('users')}
-            >
-              <span>for users</span>
+          {location.pathname !== '/playground' && (
+            <div className='header-centered-switch'>
+              <div
+                className={`header-centered-switch-button ${activeSwitch === 'users' ? 'active' : ''}`}
+                onClick={() => handleSwitchClick('users')}
+              >
+                <span>for users</span>
+              </div>
+              <div
+                className={`header-centered-switch-button ${activeSwitch === 'devs' ? 'active' : ''}`}
+                onClick={() => handleSwitchClick('devs')}
+              >
+                <span>for devs</span>
+              </div>
+              <div className='slider' style={{ transform: `translateX(${activeSwitch === 'devs' ? '100%' : activeSwitch === 'users' ? '0' : '-120%'})` }}></div>
             </div>
-            <div
-              className={`header-centered-switch-button ${activeSwitch === 'devs' ? 'active' : ''}`}
-              onClick={() => handleSwitchClick('devs')}
-            >
-              <span>for devs</span>
-            </div>
-            <div className='slider' style={{ transform: `translateX(${activeSwitch === 'devs' ? '100%' : activeSwitch === 'users' ? '0' : '-120%'})` }}></div>
-          </div>
+          )}
           <div className='header-links'>
             <NavLink to={"/developer"}>developer docs</NavLink>
             <NavLink to={"/playground"}>playground</NavLink>

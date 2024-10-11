@@ -1,22 +1,27 @@
 .playground-hero-banner-main {
     position: relative;
     height: calc(100vh - 85px);
-    border-top: 1px solid hsla(0, 0%, 47%, .25);
-    overflow: auto;
+    border-top: 1px solid hsla(0, 0%, 47%, 0.25);
+    // overflow: hidden;
+    overflow-y: auto;
+    box-sizing: border-box;
 
     .playground-herobanner-back-image {
         position: absolute;
-        bottom: -90px;
+        // bottom: -90px;
+        bottom: 0;
         // left: 50%;
         left: 0;
         // transform: translateX(-50%);
         // width: calc(100% - 80px);
         width: 100%;
+        max-height: 415px;
+        overflow: hidden;
 
         img {
             max-width: 100%;
             height: auto;
-            object-fit: none;
+            // object-fit: none;
         }
     }
 
@@ -32,9 +37,17 @@
         }
     }
 
+    .container {
+        height: 100%;
+    }
+
     .playground-herobanner-content-main {
         position: relative;
         z-index: 2;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        height: 100%;
 
         .playground-herobanner-content-first-div {
             padding: 48px 0;
@@ -53,7 +66,7 @@
                 font-weight: 700;
                 line-height: 1;
                 text-transform: uppercase;
-                font-family: 'PP Neue Montreal', sans-serif;
+                font-family: "PP Neue Montreal", sans-serif;
                 color: #fff;
                 max-width: 705px;
 
@@ -62,5 +75,109 @@
                 }
             }
         }
+
+        .playground-herobanner-content-second-div {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            padding: 40px 0;
+
+            .playground-herobanner-content-second-div-first-div {
+                p {
+                    font-size: 24px;
+                    font-weight: 500;
+                    line-height: 1.1;
+                    font-family: "PP Neue Montreal", sans-serif;
+                    color: #e3afbe;
+                    margin: 0 0 32px 0;
+                }
+
+                .playground-herobanner-content-second-div-first-div-boxes-main {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 8px;
+                    max-width: 320px;
+
+                    .playground-herobanner-content-second-div-first-div-box:first-child {
+                        opacity: 1;
+                    }
+
+                    .playground-herobanner-content-second-div-first-div-box {
+                        border: 1px solid #78787840;
+                        padding: 12px;
+                        border-radius: 6px;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        opacity: .5;
+
+                        span {
+                            font-size: 13px;
+                            font-weight: 500;
+                            line-height: 13px;
+                            text-transform: uppercase;
+                            color: #fff;
+                        }
+
+                        .checkbox {
+                            height: 14px;
+                            width: 14px;
+                            border-radius: 50px;
+                            border: 1px solid #78787840;
+                            box-sizing: border-box;
+                            background-color: transparent;
+                        }
+                    }
+                }
+            }
+
+            .passkey-button-main {
+
+                button {
+                    padding: 13px 24px 13px 12px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 8px;
+                    border: none;
+                    outline: none;
+                    border-radius: 50px;
+                    background-color: #fff;
+                    cursor: pointer;
+
+                    .passkey-button-main-scrolledlogo {
+                        background-color: #181818;
+                        padding: 8px;
+                        border-radius: 50px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        svg {
+                            fill: #fff;
+                            height: 21px;
+                            animation: SvgRotation 3s linear infinite;
+                        }
+                    }
+
+                    span {
+                        font-size: 22px;
+                        font-weight: 500;
+                        line-height: 33px;
+                        font-family: "PP Neue Montreal", sans-serif;
+                        color: #181818;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes SvgRotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
     }
 }
