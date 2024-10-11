@@ -6,11 +6,11 @@ import ScrollToTop from '../components/Scrolltotop/indx'
 
 export default function DefaultLayout() {
     return (
-        <div>
+        <>
             <ScrollToTop />
             <Header />
             <Outlet />
             <Footer />
-        </div>
+        </>
     )
 }

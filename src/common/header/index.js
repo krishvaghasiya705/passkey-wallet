@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import "./header.scss"
 import Logo from '../../assets/svg/logo'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 function Header() {
   const [activeSwitch, setActiveSwitch] = useState(null)
@@ -34,7 +34,7 @@ function Header() {
           }
         } else {
           if ((entry.target.classList.contains('users-section') && activeSwitch === 'users') ||
-              (entry.target.classList.contains('devs-section') && activeSwitch === 'devs')) {
+            (entry.target.classList.contains('devs-section') && activeSwitch === 'devs')) {
             setActiveSwitch(null)
           }
         }
@@ -68,7 +68,7 @@ function Header() {
       <div className='header-container'>
         <div className='header-alignment'>
           <div className='header-logo'>
-            <Link to={"/"}>
+            <NavLink to={"/"}>
               <div className={`logo-container ${scrolled ? 'scrolled' : ''}`}>
                 <div className="default-logo">
                   <Logo />
@@ -77,7 +77,7 @@ function Header() {
                   <Logo />
                 </div>
               </div>
-            </Link>
+            </NavLink>
           </div>
           <div className='header-centered-switch'>
             <div
@@ -95,8 +95,8 @@ function Header() {
             <div className='slider' style={{ transform: `translateX(${activeSwitch === 'devs' ? '100%' : activeSwitch === 'users' ? '0' : '-120%'})` }}></div>
           </div>
           <div className='header-links'>
-            <Link to={"/"}>developer docs</Link>
-            <Link to={"/"}>playground</Link>
+            <NavLink to={"/debveloper"}>developer docs</NavLink>
+            <NavLink to={"/playground"}>playground</NavLink>
             <button type='button'>Get Access</button>
           </div>
         </div>

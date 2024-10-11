@@ -1,10 +1,16 @@
 import React from 'react'
 import "./footer.scss"
-import { Link } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 import Growicon from '../../assets/svg/Growicon'
 import Footerlogo from '../../assets/svg/footerlogo'
 
 export default function Footer() {
+  const location = useLocation();
+
+  if (location.pathname === '/playground') {
+    return null;
+  }
+
   return (
     <footer>
       <div className='footer-backgoerund-main'>
@@ -15,12 +21,12 @@ export default function Footer() {
               <p>Start now or try our demo to experience how Passkeys can help you reduce drop-off and unlock new revenue streams.</p>
             </div>
             <div className='footer-buttons-div'>
-              <Link to={"/"}>
+              <NavLink to={"/"}>
                 <button>get access <Growicon /></button>
-              </Link>
-              <Link to={"/"}>
+              </NavLink>
+              <NavLink to={"/"}>
                 <button>try our demo <Growicon /></button>
-              </Link>
+              </NavLink>
             </div>
           </div>
           <div className='footer-last-content'>
@@ -31,9 +37,9 @@ export default function Footer() {
               <div className='footer-last-content-pera-main'>
                 <span>©2024 Exodus Movement, Inc.</span>
                 <div className='footer-last-content-pera-main-links'>
-                  <Link to={"/"}>Developer Docs</Link>
-                  <Link to={"/"}>Terms of Service</Link>
-                  <Link to={"/"}>Privacy Policy</Link>
+                  <NavLink to={"/"}>Developer Docs</NavLink>
+                  <NavLink to={"/"}>Terms of Service</NavLink>
+                  <NavLink to={"/"}>Privacy Policy</NavLink>
                 </div>
               </div>
             </div>

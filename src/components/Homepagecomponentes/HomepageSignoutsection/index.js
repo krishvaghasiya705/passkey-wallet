@@ -21,7 +21,7 @@
 //         const marker1 = markerRef1.current;
 //         const marker2 = markerRef2.current;
 //         const marker3 = markerRef3.current;
- 
+
 //         gsap.set([text1, text2], { color: "#78787840" });
 //         gsap.set([marker1, marker2, marker3], { color: "#787878" });
 
@@ -251,54 +251,38 @@ export default function Homesignout() {
     useEffect(() => {
         const splitTextIntoWords = (element) => {
             const words = element.innerText.split(" ");
-            element.innerHTML = words.map(word => `<span>${word}</span>`).join(" ");
+            element.innerHTML = words
+                .map((word) => `<span style="color: #78787840">${word} </span>`)
+                .join("");
         };
 
-        // Split text into words for both paragraphs
         splitTextIntoWords(textRef1.current);
         splitTextIntoWords(textRef2.current);
 
-        // Create a GSAP timeline for sequential animations
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: textRef1.current,
-                start: "top 80%",   // Animation starts when the element reaches 80% of the viewport height
-                end: "bottom 20%",
-                scrub: true,        // Smooth scrolling animation
-            }
-        });
+        const revealWords = (element) => {
+            const words = element.querySelectorAll("span");
+            gsap.to(words, {
+                color: "#e3afbe",
+                stagger: {
+                    each: 1,
+                    from: "start",
+                },
+                scrollTrigger: {
+                    trigger: element,
+                    start: "top 50%",
+                    end: "bottom 50%",
+                    scrub: true,
+                    toggleActions: "restart none none none",
+                },
+            });
+        };
 
-        // Animate words of the first paragraph
-        tl.fromTo(
-            textRef1.current.querySelectorAll("span"),
-            { opacity: 0, y: 50 },  // Start state
-            {
-                opacity: 1,
-                y: 0,
-                duration: 0.5,
-                stagger: 0.05,
-                ease: "power3.out", // Smooth easing
-            }
-        );
+        revealWords(textRef1.current);
+        revealWords(textRef2.current);
 
-        // Chain the second paragraph animation after the first finishes
-        tl.fromTo(
-            textRef2.current.querySelectorAll("span"),
-            { opacity: 0, y: 50 },  // Start state for the second paragraph
-            {
-                opacity: 1,
-                y: 0,
-                duration: 0.5,
-                stagger: 0.05,
-                ease: "power3.out",
-            },
-            "+=0.2"  // Delay between the animations
-        );
-
-        // Animate markers
         const markers = [markerRef1.current, markerRef2.current, markerRef3.current];
-        markers.forEach((marker, index) => {
-            gsap.to(marker.querySelector('p'), {
+        markers.forEach((marker) => {
+            gsap.to(marker.querySelector("p"), {
                 color: "#e3afbe",
                 duration: 1,
                 scrollTrigger: {
@@ -308,7 +292,7 @@ export default function Homesignout() {
                     scrub: true,
                 },
             });
-            gsap.to(marker.querySelector('svg'), {
+            gsap.to(marker.querySelector("svg"), {
                 fill: "#e3afbe",
                 duration: 1,
                 scrollTrigger: {

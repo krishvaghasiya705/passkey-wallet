@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import DefaultLayout from "./defaultLayout";
 import Home from "../module/home";
+import Playfround from "../module/playground";
 
 const router = createBrowserRouter([
     {
@@ -10,6 +11,10 @@ const router = createBrowserRouter([
             {
                 path: "/",
                 element: <Home />
+            },
+            {
+                path: "/playground",
+                element: <Playfround />
             }
         ]
     }

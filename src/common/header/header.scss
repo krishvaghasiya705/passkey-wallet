@@ -142,6 +142,16 @@ header {
                     }
                 }
 
+                &.active {
+                    transition: 0.3s ease-in-out;
+                    color: #fff;
+
+                    &::after {
+                        transition: 0.3s ease-in-out;
+                        opacity: 1;
+                    }
+                }
+
                 &::after {
                     transition: 0.3s ease-in-out;
                     position: absolute;
