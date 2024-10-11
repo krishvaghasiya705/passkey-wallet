@@ -110,7 +110,7 @@ function Header() {
       <div className='header-container'>
         <div className='header-alignment'>
           <div className='header-logo'>
-            <a href="/" onClick={(e) => handleLinkClick(e, '/')}>
+            <NavLink to={"/"} onClick={(e) => handleLinkClick(e, '/')}>
               <div className={`logo-container ${scrolled ? 'scrolled' : ''}`}>
                 <div className="default-logo">
                   <Logo />
@@ -121,7 +121,7 @@ function Header() {
                   </div>
                 </div>
               </div>
-            </a>
+            </NavLink>
           </div>
           {location.pathname !== '/playground' && (
             <div className='header-centered-switch'>
@@ -141,8 +141,8 @@ function Header() {
             </div>
           )}
           <div className='header-links'>
-            <a href="/developer" onClick={(e) => handleLinkClick(e, '/developer')}>developer docs</a>
-            <a href="/playground" onClick={(e) => handleLinkClick(e, '/playground')}>playground</a>
+            <NavLink to={"/developer"} onClick={(e) => handleLinkClick(e, '/developer')}>developer docs</NavLink>
+            <NavLink to={"/playground"} onClick={(e) => handleLinkClick(e, '/playground')}>playground</NavLink>
             <button type='button'>Get Access</button>
           </div>
         </div>
