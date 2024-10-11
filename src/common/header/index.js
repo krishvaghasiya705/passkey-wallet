@@ -2,11 +2,17 @@ import React, { useState, useEffect, useRef } from 'react'
 import "./header.scss"
 import Logo from '../../assets/svg/logo'
 import { NavLink } from 'react-router-dom'
+import ScrolledLogo from '../../assets/svg/scrolledlogo'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
 
 function Header() {
   const [activeSwitch, setActiveSwitch] = useState(null)
   const [scrolled, setScrolled] = useState(false)
   const observerRef = useRef(null)
+  const svgRef = useRef(null)
 
   const handleSwitchClick = (type) => {
     setActiveSwitch(type)
@@ -63,6 +69,36 @@ function Header() {
     }
   }, [scrolled, activeSwitch])
 
+  useEffect(() => {
+    if (svgRef.current) {
+      gsap.set(svgRef.current, { autoAlpha: 0 });
+
+      ScrollTrigger.create({
+        trigger: "body",
+        start: "top -400",
+        end: "bottom top",
+        onEnter: () => gsap.to(svgRef.current, { autoAlpha: 1, duration: 0.3 }),
+        onLeaveBack: () => gsap.to(svgRef.current, { autoAlpha: 0, duration: 0.3 }),
+      });
+
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: "#wrap",
+          pin: false,
+          scrub: 0.2,
+          start: 'top top',
+          end: '+=10000',
+        }
+      })
+        .to(svgRef.current, {
+          rotation: 360 * 5,
+          duration: 1,
+          ease: 'none',
+          transformOrigin: "center center",
+        })
+    }
+  }, [])
+
   return (
     <header>
       <div className='header-container'>
@@ -73,8 +109,10 @@ function Header() {
                 <div className="default-logo">
                   <Logo />
                 </div>
-                <div className="scrolled-logo">
-                  <Logo />
+                <div className="scrolled-logo" id='wrap'>
+                  <div id='svg' ref={svgRef}>
+                    <ScrolledLogo />
+                  </div>
                 </div>
               </div>
             </NavLink>
@@ -95,7 +133,7 @@ function Header() {
             <div className='slider' style={{ transform: `translateX(${activeSwitch === 'devs' ? '100%' : activeSwitch === 'users' ? '0' : '-120%'})` }}></div>
           </div>
           <div className='header-links'>
-            <NavLink to={"/debveloper"}>developer docs</NavLink>
+            <NavLink to={"/developer"}>developer docs</NavLink>
             <NavLink to={"/playground"}>playground</NavLink>
             <button type='button'>Get Access</button>
           </div>
