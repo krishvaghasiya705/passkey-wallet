@@ -27,7 +27,6 @@ export default function HomepageHeroBanner() {
           .fromTo(contentRef.current, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8 }, '-=0.2')
           .fromTo(buttonsRef.current.children, { opacity: 0, y: 10 }, { opacity: 1, y: 0, stagger: 0.2, duration: 0.6 }, '-=0.4');
 
-        // Video zoom and fade effect
         gsap.to(videoRef.current, {
             scale: 1.5,
             opacity: 0,
