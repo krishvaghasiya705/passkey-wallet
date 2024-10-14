@@ -4,6 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import "./homeherobanner.scss"
 
 import Rockvideo from '../../../assets/video/rock-video.mp4';
+import Rockvideo2 from '../../../assets/video/rock-video.webm';
 import Exoduslogo from './../../../assets/svg/exoduslogo';
 import Growicon from '../../../assets/svg/Growicon';
 
@@ -22,10 +23,10 @@ export default function HomepageHeroBanner() {
         const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
         tl.fromTo(titleRef.current, { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 1 })
-          .fromTo(subtitleRef.current, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.8 }, '-=0.5')
-          .fromTo(logoRef.current, { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.6 }, '-=0.4')
-          .fromTo(contentRef.current, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8 }, '-=0.2')
-          .fromTo(buttonsRef.current.children, { opacity: 0, y: 10 }, { opacity: 1, y: 0, stagger: 0.2, duration: 0.6 }, '-=0.4');
+            .fromTo(subtitleRef.current, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.8 }, '-=0.5')
+            .fromTo(logoRef.current, { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.6 }, '-=0.4')
+            .fromTo(contentRef.current, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8 }, '-=0.2')
+            .fromTo(buttonsRef.current.children, { opacity: 0, y: 10 }, { opacity: 1, y: 0, stagger: 0.2, duration: 0.6 }, '-=0.4');
 
         gsap.to(videoRef.current, {
             scale: 1.5,
@@ -41,8 +42,17 @@ export default function HomepageHeroBanner() {
 
     return (
         <div className='home-herobanner-main' ref={sectionRef}>
-            <video ref={videoRef} autoPlay loop muted playsInline preload="auto">
+            <video
+                ref={videoRef}
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="auto"
+            >
                 <source src={Rockvideo} type='video/mp4' />
+                <source src={Rockvideo2} type='video/webm' />
+                Your browser does not support the video tag.
             </video>
             <div className='home-herobanner-main'>
                 <div className='home-herobanner-content-main'>
