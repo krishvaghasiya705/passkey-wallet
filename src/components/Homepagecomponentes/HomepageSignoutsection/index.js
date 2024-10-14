@@ -4,6 +4,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import Signoutvideo from "../../../assets/video/simple-signup.mp4";
+import Signoutvideo2 from "../../../assets/video/simple-signup.webm";
 import Trueicon from "../../../assets/svg/Trueicon";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -103,6 +104,7 @@ export default function Homesignout() {
                     <div className="home-signout-video-main">
                         <video autoPlay loop muted playsInline preload="auto">
                             <source src={Signoutvideo} type="video/mp4" />
+                            <source src={Signoutvideo2} type="video/webm" />
                         </video>
                     </div>
                 </div>

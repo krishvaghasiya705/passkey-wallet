@@ -4,6 +4,7 @@ import "./frictionlesssection.scss"
 import Rockimage from '../../../assets/image/rock-poster.png'
 
 import Frictionlessvideo from "../../../assets/video/frictionless.mp4";
+import Frictionlessvideo2 from "../../../assets/video/frictionless.webm";
 import Tybutton from '../../buttons/trybutton'
 
 export default function Frictionlesssection() {
@@ -23,6 +24,7 @@ export default function Frictionlesssection() {
                             <div className='frictionless-video-div'>
                                 <video autoPlay loop muted playsInline preload="auto">
                                     <source src={Frictionlessvideo} type="video/mp4" />
+                                    <source src={Frictionlessvideo2} type="video/webm" />
                                 </video>
                             </div>
                             <div></div>

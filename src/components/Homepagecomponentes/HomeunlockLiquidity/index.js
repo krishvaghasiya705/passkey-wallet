@@ -4,6 +4,7 @@ import "./unlockliquidity.scss"
 import Rockimage from "../../../assets/image/rock-poster.png"
 
 import Liquidityvideo from "../../../assets/video/liquidity.mp4"
+import Liquidityvideo2 from "../../../assets/video/liquidity.webm"
 import Tybutton from './../../buttons/trybutton/index';
 
 export default function Unlocliquidity() {
@@ -24,6 +25,7 @@ export default function Unlocliquidity() {
                         <div className='unlock-liquidity-video'>
                             <video autoPlay loop muted playsInline preload="auto">
                                 <source src={Liquidityvideo} type="video/mp4" />
+                                <source src={Liquidityvideo2} type="video/webm" />
                             </video>
                         </div>
                     </div>

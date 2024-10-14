@@ -4,10 +4,18 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import "./Effortssection.scss"
 import { Link } from 'react-router-dom'
 import Growicon from './../../../assets/svg/Growicon';
+
+// MP4 videos
 import Featurevideo1 from "../../../assets/video/feature-video1.mp4"
 import Featurevideo2 from "../../../assets/video/feature-video2.mp4"
 import Featurevideo3 from "../../../assets/video/feature-video3.mp4"
 import Featurevideo4 from "../../../assets/video/feature-video4.mp4"
+
+// WebM videos
+import Featurevideow1 from "../../../assets/video/feature-video1.webm"
+import Featurevideow2 from "../../../assets/video/feature-video2.webm"
+import Featurevideow3 from "../../../assets/video/feature-video3.webm"
+import Featurevideow4 from "../../../assets/video/feature-video4.webm"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -59,6 +67,7 @@ export default function Homeffortssection() {
                                 <div className='home-efforts-card-image'>
                                     <video autoPlay loop muted playsInline preload="auto">
                                         <source src={Featurevideo1} type="video/mp4" />
+                                        <source src={Featurevideow1} type="video/webm" />
                                     </video>
                                 </div>
                                 <div>
@@ -75,6 +84,7 @@ export default function Homeffortssection() {
                                 <div className='home-efforts-card-image'>
                                     <video autoPlay loop muted playsInline preload="auto">
                                         <source src={Featurevideo2} type="video/mp4" />
+                                        <source src={Featurevideow2} type="video/webm" />
                                     </video>
                                 </div>
                                 <div>
@@ -91,6 +101,7 @@ export default function Homeffortssection() {
                                 <div className='home-efforts-card-image'>
                                     <video autoPlay loop muted playsInline preload="auto">
                                         <source src={Featurevideo3} type="video/mp4" />
+                                        <source src={Featurevideow3} type="video/webm" />
                                     </video>
                                 </div>
                                 <div>
@@ -107,6 +118,7 @@ export default function Homeffortssection() {
                                 <div className='home-efforts-card-image'>
                                     <video autoPlay loop muted playsInline preload="auto">
                                         <source src={Featurevideo4} type="video/mp4" />
+                                        <source src={Featurevideow4} type="video/webm" />
                                     </video>
                                 </div>
                                 <div>
