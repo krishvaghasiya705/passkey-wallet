@@ -29,7 +29,6 @@ export default function Homeffortssection() {
         const slider = sliderRef.current
         const container = containerRef.current
         const content = contentRef.current
-        const cards = cardsRef.current
 
         // Content animation
         gsap.fromTo(content.children,
@@ -66,7 +65,7 @@ export default function Homeffortssection() {
         })
 
         // Cards animation
-        cards.forEach((card, index) => {
+        cardsRef.current.forEach((card, index) => {
             gsap.fromTo(card,
                 { y: 50, opacity: 0 },
                 {
@@ -78,7 +77,6 @@ export default function Homeffortssection() {
                         start: "top 80%",
                         end: "bottom 20%",
                         toggleActions: "play none none reverse",
-                        containerAnimation: tl
                     }
                 }
             )
