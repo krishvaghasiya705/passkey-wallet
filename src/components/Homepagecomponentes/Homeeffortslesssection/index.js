@@ -22,11 +22,33 @@ gsap.registerPlugin(ScrollTrigger)
 export default function Homeffortssection() {
     const sliderRef = useRef(null)
     const containerRef = useRef(null)
+    const contentRef = useRef(null)
+    const cardsRef = useRef([])
 
     useEffect(() => {
         const slider = sliderRef.current
         const container = containerRef.current
+        const content = contentRef.current
+        const cards = cardsRef.current
 
+        // Content animation
+        gsap.fromTo(content.children,
+            { y: 50, opacity: 0 },
+            {
+                y: 0,
+                opacity: 1,
+                duration: 0.8,
+                stagger: 0.2,
+                scrollTrigger: {
+                    trigger: content,
+                    start: "top 80%",
+                    end: "bottom 20%",
+                    toggleActions: "play none none reverse"
+                }
+            }
+        )
+
+        // Horizontal scroll animation
         let tl = gsap.timeline({
             scrollTrigger: {
                 trigger: container,
@@ -35,13 +57,31 @@ export default function Homeffortssection() {
                 end: () => `+=${slider.scrollWidth - window.innerWidth}`,
                 scrub: 1,
                 anticipatePin: 1,
-                // markers: true, // Remove this in production
             }
         })
 
         tl.to(slider, {
             x: () => -(slider.scrollWidth - window.innerWidth),
             ease: "none",
+        })
+
+        // Cards animation
+        cards.forEach((card, index) => {
+            gsap.fromTo(card,
+                { y: 50, opacity: 0 },
+                {
+                    y: 0,
+                    opacity: 1,
+                    duration: 0.8,
+                    scrollTrigger: {
+                        trigger: card,
+                        start: "top 80%",
+                        end: "bottom 20%",
+                        toggleActions: "play none none reverse",
+                        containerAnimation: tl
+                    }
+                }
+            )
         })
 
         return () => {
@@ -53,7 +93,7 @@ export default function Homeffortssection() {
     return (
         <div className='home-efforts-section-main' ref={containerRef}>
             <div className='container2'>
-                <div className='home-efforts-content'>
+                <div className='home-efforts-content' ref={contentRef}>
                     <span>[006. For developers]</span>
                     <h2>Effortless Integration</h2>
                     <p>Embed the Passkeys wallet on your platform with just a few lines of code.</p>
@@ -63,7 +103,7 @@ export default function Homeffortssection() {
                 <div className='home-efforts-section-slider-main-alignment'>
                     <div className='home-efforts-section-slider-main' ref={sliderRef}>
                         <Link to={"/"}>
-                            <div className='home-efforts-card-main'>
+                            <div className='home-efforts-card-main' ref={el => cardsRef.current[0] = el}>
                                 <div className='home-efforts-card-image'>
                                     <video autoPlay loop muted playsInline preload="auto">
                                         <source src={Featurevideo1} type="video/mp4" />
@@ -80,7 +120,7 @@ export default function Homeffortssection() {
                             </div>
                         </Link>
                         <Link to={"/"}>
-                            <div className='home-efforts-card-main'>
+                            <div className='home-efforts-card-main' ref={el => cardsRef.current[1] = el}>
                                 <div className='home-efforts-card-image'>
                                     <video autoPlay loop muted playsInline preload="auto">
                                         <source src={Featurevideo2} type="video/mp4" />
@@ -97,7 +137,7 @@ export default function Homeffortssection() {
                             </div>
                         </Link>
                         <Link to={"/"}>
-                            <div className='home-efforts-card-main'>
+                            <div className='home-efforts-card-main' ref={el => cardsRef.current[2] = el}>
                                 <div className='home-efforts-card-image'>
                                     <video autoPlay loop muted playsInline preload="auto">
                                         <source src={Featurevideo3} type="video/mp4" />
@@ -114,7 +154,7 @@ export default function Homeffortssection() {
                             </div>
                         </Link>
                         <Link to={"/"}>
-                            <div className='home-efforts-card-main'>
+                            <div className='home-efforts-card-main' ref={el => cardsRef.current[3] = el}>
                                 <div className='home-efforts-card-image'>
                                     <video autoPlay loop muted playsInline preload="auto">
                                         <source src={Featurevideo4} type="video/mp4" />

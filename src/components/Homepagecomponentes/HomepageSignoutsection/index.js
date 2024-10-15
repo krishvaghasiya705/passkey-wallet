@@ -15,6 +15,7 @@ export default function Homesignout() {
     const markerRef1 = useRef(null);
     const markerRef2 = useRef(null);
     const markerRef3 = useRef(null);
+    const videoRef = useRef(null);
 
     useEffect(() => {
         const splitTextIntoWords = (element) => {
@@ -71,6 +72,23 @@ export default function Homesignout() {
                 },
             });
         });
+
+        // Add animation for video
+        gsap.fromTo(videoRef.current,
+            { x: '100%', opacity: 0 },
+            {
+                x: '0%',
+                opacity: 1,
+                duration: 1,
+                scrollTrigger: {
+                    trigger: videoRef.current,
+                    start: "top 80%",
+                    end: "top 20%",
+                    scrub: true,
+                    toggleActions: "play none none reverse"
+                }
+            }
+        );
     }, []);
 
     return (
@@ -101,7 +119,7 @@ export default function Homesignout() {
                             </div>
                         </div>
                     </div>
-                    <div className="home-signout-video-main">
+                    <div className="home-signout-video-main" ref={videoRef}>
                         <video autoPlay loop muted playsInline preload="auto">
                             <source src={Signoutvideo} type="video/mp4" />
                             <source src={Signoutvideo2} type="video/webm" />
