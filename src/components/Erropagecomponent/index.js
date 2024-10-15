@@ -14,7 +14,6 @@ export default function ErropageCompo() {
     useEffect(() => {
         const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-        // Enhanced entry animations
         tl.fromTo(titleRef.current, { y: -100, opacity: 0, rotationX: -90 }, { y: 0, opacity: 1, rotationX: 0, duration: 1.5 })
             .fromTo(messageRef.current, { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 1 }, "-=0.5")
             .fromTo([backButtonRef.current, homeButtonRef.current],
@@ -23,7 +22,6 @@ export default function ErropageCompo() {
             .to([backButtonRef.current, homeButtonRef.current],
                 { y: -10, repeat: -1, yoyo: true, duration: 0.8, stagger: 0.1 });
 
-        // Add floating particles
         const particlesContainer = document.querySelector('.particles');
         for (let i = 0; i < 50; i++) {
             const particle = document.createElement('div');
@@ -46,7 +44,6 @@ export default function ErropageCompo() {
             });
         }
 
-        // Improved custom cursor animation
         const cursor = cursorRef.current;
         const cursorBG = cursorBGRef.current;
 
@@ -68,7 +65,6 @@ export default function ErropageCompo() {
                 ease: "power2.out"
             });
 
-            // Move particles away from cursor
             particlesRef.current.forEach(particle => {
                 const rect = particle.getBoundingClientRect();
                 const particleX = rect.left + rect.width / 2;
@@ -92,10 +88,8 @@ export default function ErropageCompo() {
 
         window.addEventListener('mousemove', moveCursor);
 
-        // Hide default cursor
         document.body.style.cursor = 'none';
 
-        // Enhanced bubble effect on text hover
         const textElements = document.querySelectorAll('.bubble-text');
         textElements.forEach(element => {
             element.addEventListener('mouseenter', () => {
@@ -108,7 +102,6 @@ export default function ErropageCompo() {
             });
         });
 
-        // Button hover animation
         const buttons = document.querySelectorAll('.error-button');
         buttons.forEach(button => {
             button.addEventListener('mouseenter', () => {

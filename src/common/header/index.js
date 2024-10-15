@@ -13,6 +13,7 @@ function Header() {
   const [scrolled, setScrolled] = useState(false)
   const observerRef = useRef(null)
   const svgRef = useRef(null)
+  const headerRef = useRef(null)
   const location = useLocation()
 
   const handleSwitchClick = (type) => {
@@ -72,21 +73,21 @@ function Header() {
 
   useEffect(() => {
     if (svgRef.current) {
-      gsap.set(svgRef.current, { autoAlpha: 0 });
+      gsap.set(svgRef.current, { autoAlpha: 0, scale: 0.5 });
 
       ScrollTrigger.create({
         trigger: "body",
-        start: "top -400",
+        start: "top -200",
         end: "bottom top",
-        onEnter: () => gsap.to(svgRef.current, { autoAlpha: 1, duration: 0.3 }),
-        onLeaveBack: () => gsap.to(svgRef.current, { autoAlpha: 0, duration: 0.3 }),
+        onEnter: () => gsap.to(svgRef.current, { autoAlpha: 1, scale: 1, duration: 0.5, ease: "back.out(1.7)" }),
+        onLeaveBack: () => gsap.to(svgRef.current, { autoAlpha: 0, scale: 0.5, duration: 0.3, ease: "power2.in" }),
       });
 
       gsap.timeline({
         scrollTrigger: {
           trigger: "#wrap",
           pin: false,
-          scrub: 0.2,
+          scrub: 0.5,
           start: 'top top',
           end: '+=10000',
         }
@@ -94,19 +95,38 @@ function Header() {
         .to(svgRef.current, {
           rotation: 360 * 5,
           duration: 1,
-          ease: 'none',
+          ease: 'power1.inOut',
           transformOrigin: "center center",
         })
     }
   }, [])
 
+  useEffect(() => {
+    if (headerRef.current) {
+      gsap.set(headerRef.current, { y: -100, opacity: 0 });
+      gsap.to(headerRef.current, {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: "elastic.out(1, 0.8)",
+        delay: 0.2,
+      });
+    }
+  }, []);
+
   const handleLinkClick = (e, path) => {
     e.preventDefault();
-    window.location.href = path;
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+    setTimeout(() => {
+      window.location.href = path;
+    }, 1000);
   }
 
   return (
-    <header>
+    <header ref={headerRef} style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1000 }}>
       <div className='header-container'>
         <div className='header-alignment'>
           <div className='header-logo'>

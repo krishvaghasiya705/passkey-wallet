@@ -55,8 +55,8 @@ export default function Homesignout() {
                 duration: 1,
                 scrollTrigger: {
                     trigger: marker,
-                    start: "top 80%",
-                    end: "bottom 20%",
+                    start: "top 50%",
+                    end: "bottom 50%",
                     scrub: true,
                 },
             });
@@ -65,8 +65,8 @@ export default function Homesignout() {
                 duration: 1,
                 scrollTrigger: {
                     trigger: marker,
-                    start: "top 80%",
-                    end: "bottom 20%",
+                    start: "top 50%",
+                    end: "bottom 50%",
                     scrub: true,
                 },
             });
