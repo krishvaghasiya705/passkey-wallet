@@ -1,129 +1,28 @@
-body {
-    cursor: none;
-  }
-  
-  .cursor-outer,
-  .cursor-inner {
-    pointer-events: none;
+.custom-cursor {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #fff;
     position: fixed;
     top: 0;
     left: 0;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    opacity: 1;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
     z-index: 9999;
     mix-blend-mode: difference;
-  }
-  
-  .cursor-outer {
-    width: 40px;
-    height: 40px;
-    border: 2px solid rgba(255, 255, 255, 0.5);
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  
-  .cursor-inner {
-    width: 8px;
-    height: 8px;
-    background-color: #fff;
-    transition: all 0.2s ease-in-out;
-  }
-  
-  .cursor-text {
-    position: absolute;
-    top: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 14px;
-    font-weight: bold;
-    color: #fff;
-    white-space: nowrap;
-    opacity: 0;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-  }
-  
-  .cursor-hover {
-    .cursor-outer {
-      animation: cursorAura 2s infinite alternate;
-    }
-  
-    .cursor-inner {
-      transform: scale(1.2);
-    }
-  
-    .cursor-text {
-      opacity: 1;
-      transform: translateX(-50%) translateY(-5px);
-    }
-  }
-  
-  .cursor-clicking {
-    .cursor-outer {
-      transform: scale(0.95);
-      opacity: 0.8;
-    }
-  
-    .cursor-inner {
-      transform: scale(0.8);
-    }
-  }
-  
-  @keyframes cursorAura {
-    0% {
-      box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.2);
-      transform: scale(1);
-    }
-    100% {
-      box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0);
-      transform: scale(1.1);
-    }
-  }
-  
-  // Cursor variants
-  .cursor-variant-magnetic {
-    .cursor-outer {
-      border-color: #ff00ff;
-      animation: magneticPulse 1.5s infinite alternate;
-    }
-    .cursor-inner {
-      background-color: #ff00ff;
-    }
-  }
-  
-  .cursor-variant-highlight {
-    .cursor-outer {
-      border-color: #ffff00;
-      animation: highlightSpin 3s linear infinite;
-    }
-    .cursor-inner {
-      background-color: #ffff00;
-    }
-  }
-  
-  @keyframes magneticPulse {
-    0% {
-      transform: scale(1);
-    }
-    100% {
-      transform: scale(1.15);
-    }
-  }
-  
-  @keyframes highlightSpin {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-  
-  // Add more variants as needed
-  
-  @media (max-width: 768px) {
-    .cursor-outer,
-    .cursor-inner {
-      display: none;
-    }
-  }
+    transform: translate(-50%, -50%);
+    transition: width 0.3s ease-out, height 0.3s ease-out, background-color 0.3s ease-out;
+}
+
+.custom-cursor-bg {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s ease-out, height 0.3s ease-out, background-color 0.3s ease-out;
+}

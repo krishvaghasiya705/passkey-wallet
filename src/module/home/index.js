@@ -5,10 +5,12 @@ import Frictionlesssection from '../../components/Homepagecomponentes/Frictionle
 import Unlocliquidity from '../../components/Homepagecomponentes/HomeunlockLiquidity'
 import Homefocussection from '../../components/Homepagecomponentes/Homefocussection'
 import Homeffortssection from '../../components/Homepagecomponentes/Homeeffortslesssection'
+import CustomCursor from './../../components/cursor/CustomCursor';
 
 export default function Home() {
   return (
     <div>
+      <CustomCursor />
       <Homepageherobanner />
 
       {/* Users section */}

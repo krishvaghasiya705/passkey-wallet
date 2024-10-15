@@ -102,7 +102,7 @@ export default function ErropageCompo() {
             });
         });
 
-        const buttons = document.querySelectorAll('.error-button');
+        const buttons = document.querySelectorAll('.error-button .error-button');
         buttons.forEach(button => {
             button.addEventListener('mouseenter', () => {
                 gsap.to(button, { scale: 1.1, duration: 0.3 });
@@ -131,10 +131,10 @@ export default function ErropageCompo() {
             <h1 ref={titleRef} className="error-title bubble-text">Oops! 404</h1>
             <p ref={messageRef} className="error-message bubble-text">The page you're looking for seems to have vanished into thin air!</p>
             <div className="button-container">
-                <button ref={backButtonRef} className="error-button" onClick={() => window.history.back()}>
+                <button ref={backButtonRef} className="error-button error-button" onClick={() => window.history.back()}>
                     Go Back
                 </button>
-                <button ref={homeButtonRef} className="error-button home-button" onClick={() => window.location.href = '/'}>
+                <button ref={homeButtonRef} className="error-button home-button error-button" onClick={() => window.location.href = '/'}>
                     Home Page
                 </button>
             </div>
