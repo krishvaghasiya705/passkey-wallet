@@ -29,7 +29,7 @@ const CustomCursor = () => {
             });
         };
 
-        const textElements = document.querySelectorAll('a,button,input,textarea,select,.header-centered-switch-button');
+        const textElements = document.querySelectorAll('a,button,input,textarea,select,.header-centered-switch-button,footer-logo,home-efforts-card-main');
         textElements.forEach(element => {
             element.addEventListener('mouseenter', () => {
                 gsap.to(cursor, { scale: 3, backgroundColor: '#e3afbe', duration: 0.3 });

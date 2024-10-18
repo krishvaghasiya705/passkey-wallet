@@ -11,6 +11,12 @@ header {
         justify-content: space-between;
         align-items: center;
 
+        .dev-logo-main {
+            svg {
+                fill: #181818 !important;
+            }
+        }
+
         .header-logo {
             .logo-container {
                 position: relative;

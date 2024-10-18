@@ -32,7 +32,7 @@ export default function Footer() {
           <div className='footer-last-content'>
             <div className='footer-last-content-flx'>
               <div className='footer-logo'>
-                <Footerlogo />
+                <NavLink to={"/"}><Footerlogo /></NavLink>
               </div>
               <div className='footer-last-content-pera-main'>
                 <span>©2024 Exodus Movement, Inc.</span>
