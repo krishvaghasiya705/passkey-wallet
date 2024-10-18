@@ -128,85 +128,71 @@ function Header() {
 
   return (
     <>
-      {/* <-------Default header---------> */}
-      {/* <header ref={headerRef} style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1000 }}>
-        <div className='header-container'>
-          <div className='header-alignment'>
-            <div className='header-logo'>
-              <NavLink to={"/"} onClick={(e) => handleLinkClick(e, '/')}>
-                <div className={`logo-container ${scrolled ? 'scrolled' : ''}`}>
-                  <div className="default-logo">
-                    <Logo />
-                  </div>
-                  <div className="scrolled-logo" id='wrap'>
-                    <div id='svg' ref={svgRef}>
-                      <ScrolledLogo />
+      {location.pathname !== '/developer' && (
+        <header ref={headerRef} style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1000 }}>
+          <div className='header-container'>
+            <div className='header-alignment'>
+              <div className='header-logo'>
+                <NavLink to={"/"} onClick={(e) => handleLinkClick(e, '/')}>
+                  <div className={`logo-container ${scrolled ? 'scrolled' : ''}`}>
+                    <div className="default-logo">
+                      <Logo />
+                    </div>
+                    <div className="scrolled-logo" id='wrap'>
+                      <div id='svg' ref={svgRef}>
+                        <ScrolledLogo />
+                      </div>
                     </div>
                   </div>
-                </div>
-              </NavLink>
-            </div>
-            {location.pathname !== '/playground' && (
-              <div className='header-centered-switch'>
-                <div
-                  className={`header-centered-switch-button ${activeSwitch === 'users' ? 'active' : ''}`}
-                  onClick={() => handleSwitchClick('users')}
-                >
-                  <span>for users</span>
-                </div>
-                <div
-                  className={`header-centered-switch-button ${activeSwitch === 'devs' ? 'active' : ''}`}
-                  onClick={() => handleSwitchClick('devs')}
-                >
-                  <span>for devs</span>
-                </div>
-                <div className='slider' style={{ transform: `translateX(${activeSwitch === 'devs' ? '100%' : activeSwitch === 'users' ? '0' : '-120%'})` }}></div>
+                </NavLink>
               </div>
-            )}
-            <div className='header-links'>
-              <NavLink to={"/developer"} onClick={(e) => handleLinkClick(e, '/developer')}>developer docs</NavLink>
-              <NavLink to={"/playground"} onClick={(e) => handleLinkClick(e, '/playground')}>playground</NavLink>
-              <button type='button'>Get Access</button>
+              {location.pathname !== '/playground' && (
+                <div className='header-centered-switch'>
+                  <div
+                    className={`header-centered-switch-button ${activeSwitch === 'users' ? 'active' : ''}`}
+                    onClick={() => handleSwitchClick('users')}
+                  >
+                    <span>for users</span>
+                  </div>
+                  <div
+                    className={`header-centered-switch-button ${activeSwitch === 'devs' ? 'active' : ''}`}
+                    onClick={() => handleSwitchClick('devs')}
+                  >
+                    <span>for devs</span>
+                  </div>
+                  <div className='slider' style={{ transform: `translateX(${activeSwitch === 'devs' ? '100%' : activeSwitch === 'users' ? '0' : '-120%'})` }}></div>
+                </div>
+              )}
+              <div className='header-links'>
+                <NavLink to={"/developer"} onClick={(e) => handleLinkClick(e, '/developer')}>developer docs</NavLink>
+                <NavLink to={"/playground"} onClick={(e) => handleLinkClick(e, '/playground')}>playground</NavLink>
+                <button type='button'>Get Access</button>
+              </div>
             </div>
           </div>
-        </div>
-      </header> */}
+        </header>
+      )}
 
-      {/* <-------Developer header---------> */}
-      <header ref={headerRef} style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1000 }}>
-        <div className='header-container'>
-          <div className='header-alignment'>
-            <div className='header-logo'>
-              <NavLink to={"/"} onClick={(e) => handleLinkClick(e, '/')}>
-                <div className='dev-logo-main'>
-                  <Passkeydevelopericon />
-                </div>
-              </NavLink>
-            </div>
-            {location.pathname !== '/playground' && location.pathname !== '/developer' && (
-              <div className='header-centered-switch'>
-                <div
-                  className={`header-centered-switch-button ${activeSwitch === 'users' ? 'active' : ''}`}
-                  onClick={() => handleSwitchClick('users')}
-                >
-                  <span>for users</span>
-                </div>
-                <div
-                  className={`header-centered-switch-button ${activeSwitch === 'devs' ? 'active' : ''}`}
-                  onClick={() => handleSwitchClick('devs')}
-                >
-                  <span>for devs</span>
-                </div>
-                <div className='slider' style={{ transform: `translateX(${activeSwitch === 'devs' ? '100%' : activeSwitch === 'users' ? '0' : '-120%'})` }}></div>
+      {location.pathname === '/developer' && (
+        <header ref={headerRef} style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1000, borderBottom: '1px solid #e0e0e0' }}>
+          <div className='header-container'>
+            <div className='header-alignment'>
+              <div className='header-logo'>
+                <NavLink to={"/"} onClick={(e) => handleLinkClick(e, '/')}>
+                  <div className='dev-logo-main'>
+                    <Passkeydevelopericon />
+                  </div>
+                </NavLink>
               </div>
-            )}
-            <div className='header-links'>
-              <NavLink to={"/developer"} onClick={(e) => handleLinkClick(e, '/developer')}>developer docs</NavLink>
-              <NavLink to={"/playground"} onClick={(e) => handleLinkClick(e, '/playground')}>playground</NavLink>
+              <div className='header-links'>
+                <NavLink to={"/developer"} onClick={(e) => handleLinkClick(e, '/developer')}>developer docs</NavLink>
+                <NavLink to={"/playground"} onClick={(e) => handleLinkClick(e, '/playground')}>playground</NavLink>
+              </div>
+              {/*<-------------------------- Such more content -------------------------->*/}
             </div>
           </div>
-        </div>
-      </header>
+        </header>
+      )}
     </>
   )
 }

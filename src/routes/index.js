@@ -1,9 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
 import DefaultLayout from "./defaultLayout";
 import Home from "../module/home";
-import Playfround from "../module/playground";
-import Erropage from "../module/Erropage";
-import Developer from "../module/devloper";
+import Playground from "../module/playground";
+import Errorpage from "../module/Erropage";
+// import Developer from "../module/devloper";
 
 const router = createBrowserRouter([
     {
@@ -12,22 +12,38 @@ const router = createBrowserRouter([
         children: [
             {
                 path: "/",
-                element: <Home />
+                element: <Home />,
+                loader: () => {
+                    document.body.style.backgroundColor = "#181818";
+                    return null;
+                },
             },
-            {
-                path: "/developer",
-                element: <Developer />
-            },
+            // {
+            //     path: "/developer",
+            //     element: <Developer />,
+            //     loader: () => {
+            //         document.body.style.backgroundColor = "#fff";
+            //         return null;
+            //     },
+            // },
             {
                 path: "/playground",
-                element: <Playfround />
+                element: <Playground />,
+                loader: () => {
+                    document.body.style.backgroundColor = "#181818";
+                    return null;
+                },
             }
         ]
     },
     {
         path: "*",
-        element: <Erropage />
+        element: <Errorpage />,
+        loader: () => {
+            document.body.style.backgroundColor = "#e3afbe";
+            return null;
+        },
     }
-])
+]);
 
-export default router
+export default router;
