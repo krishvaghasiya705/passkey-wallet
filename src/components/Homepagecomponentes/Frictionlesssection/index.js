@@ -23,8 +23,9 @@ export default function Frictionlesssection() {
         const timeline = gsap.timeline({
             scrollTrigger: {
                 trigger: sectionRef.current,
-                start: "top 70%",
-                end: "bottom 30%",
+                start: "top 80%",
+                end: "center 30%",
+                scrub: 1, // Makes the animation follow scroll position
                 toggleActions: "play none none reverse"
             }
         });
@@ -32,35 +33,35 @@ export default function Frictionlesssection() {
         // Video animation
         timeline.fromTo(videoRef.current,
             { x: '100%', opacity: 0 },
-            { x: '0%', opacity: 1, duration: 1 }
+            { x: '0%', opacity: 1 }
         );
 
         // Title animation
         timeline.fromTo(titleRef.current,
             { y: 50, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.8 },
-            "-=0.5"
+            { y: 0, opacity: 1 },
+            "<+=0.1" // Slight delay after previous animation
         );
 
         // Subtitle animation
         timeline.fromTo(subtitleRef.current,
             { y: 30, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.8 },
-            "-=0.6"
+            { y: 0, opacity: 1 },
+            "<+=0.1"
         );
 
         // Paragraph animation
         timeline.fromTo(paragraphRef.current,
             { y: 20, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.8 },
-            "-=0.6"
+            { y: 0, opacity: 1 },
+            "<+=0.1"
         );
 
         // Button animation
         timeline.fromTo(buttonRef.current,
             { y: 20, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.8 },
-            "-=0.6"
+            { y: 0, opacity: 1 },
+            "<+=0.1"
         );
     }, []);
 

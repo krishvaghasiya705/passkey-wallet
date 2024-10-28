@@ -19,38 +19,40 @@ export default function Unlocliquidity() {
         const unlockLiquidityTimeline = gsap.timeline({
             scrollTrigger: {
                 trigger: unlockLiquidityRef.current,
-                start: "top 70%",
-                end: "bottom 30%",
+                start: "top 80%",
+                end: "center 50%",
+                scrub: 1, // Makes animation follow scroll
                 toggleActions: "play none none reverse"
             }
         });
 
         unlockLiquidityTimeline.fromTo(unlockLiquidityRef.current.querySelector('.unlock-liquidity-content-main-div'),
-            { y: 50, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.8 }
+            { y: 100, opacity: 0 },
+            { y: 0, opacity: 1, duration: 1 }
         );
 
         unlockLiquidityTimeline.fromTo(unlockLiquidityRef.current.querySelector('.unlock-liquidity-video'),
             { x: '100%', opacity: 0 },
             { x: '0%', opacity: 1, duration: 1 },
-            "-=0.4"
+            "-=0.8"
         );
 
-        // Add text animations
+        // Updated text animations to work with scroll
         const unlockLiquidityTexts = unlockLiquidityRef.current.querySelectorAll('span, h2, p');
         unlockLiquidityTexts.forEach((element, index) => {
             unlockLiquidityTimeline.fromTo(element,
-                { y: 20, opacity: 0 },
+                { y: 50, opacity: 0 },
                 { y: 0, opacity: 1, duration: 0.5 },
-                `-=${0.3 * index}`
+                `-=${0.2}`
             );
         });
 
         const oneWalletTimeline = gsap.timeline({
             scrollTrigger: {
                 trigger: oneWalletRef.current,
-                start: "top 70%",
-                end: "bottom 30%",
+                start: "top 80%",
+                end: "center 50%",
+                scrub: 1, // Makes animation follow scroll
                 toggleActions: "play none none reverse"
             }
         });

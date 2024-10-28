@@ -13,34 +13,42 @@ export default function Homefocussection() {
     const contentRef = useRef(null);
 
     useEffect(() => {
-        const timeline = gsap.timeline({
-            scrollTrigger: {
-                trigger: sectionRef.current,
-                start: "top 70%",
-                end: "bottom 30%",
-                toggleActions: "play none none reverse"
+        // Content animation
+        gsap.fromTo(contentRef.current.children,
+            { 
+                y: 100, 
+                opacity: 0 
+            },
+            {
+                y: 0,
+                opacity: 1,
+                stagger: 0.2,
+                duration: 2,
+                scrollTrigger: {
+                    trigger: contentRef.current,
+                    start: "top 80%",
+                    end: "top 30%",
+                    scrub: 1,
+                    // toggleActions: "play none none reverse"  // removed this as we're using scrub
+                }
             }
-        });
-
-        timeline.fromTo(contentRef.current.children,
-            { y: 50, opacity: 0 },
-            { y: 0, opacity: 1, stagger: 0.2, duration: 0.8 }
         );
 
+        // Video animation
         gsap.fromTo(videoRef.current,
             {
-                y: '-100%',
+                y: 100,
                 opacity: 0
             },
             {
-                y: '0%',
+                y: 0,
                 opacity: 1,
-                duration: 1,
+                duration: 2,
                 scrollTrigger: {
                     trigger: videoRef.current,
                     start: "top 80%",
-                    end: "bottom 30%",
-                    scrub: true
+                    end: "top 30%",
+                    scrub: 1
                 }
             }
         );
