@@ -3,6 +3,7 @@ footer {
     z-index: 2;
     padding: 12px;
     // margin: 200px 0 0 0;
+    overflow: hidden;
 
     .footer-backgoerund-main {
         padding: 44px 32px 32px;
@@ -102,7 +103,10 @@ footer {
                 align-items: end;
 
                 .footer-logo {
-                    width: 25%;
+                    // width: 25%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
 
                     svg {
                         min-width: 210px;

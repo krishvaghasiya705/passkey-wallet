@@ -1,0 +1,169 @@
+.developer-page-main-layout {
+    display: grid;
+    grid-template-columns: 16% 1fr 16%;
+    margin: 86px 0 0 0;
+
+    .developer-page-main-left-eye {
+        width: 100%;
+        height: 100%;
+        padding: 64px 0 0 40px;
+        box-sizing: border-box;
+        position: sticky;
+        top: 0;
+        left: 0;
+
+        .developer-page-main-left-eye-buttons-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: start;
+            gap: 10px;
+
+            .dev-pagination-button {
+
+                &.active {
+
+                    button {
+                        transition: .3s ease-in-out;
+                        background: #181818;
+                        color: #fff;
+                    }
+                }
+
+                &.api-drp-active,
+                &.recipe-drp-active {
+
+                    button {
+                        color: #000;
+                        transition: .3s ease-in-out;
+
+                        svg {
+                            transition: .3s ease-in-out;
+                            transform: rotate(90deg);
+                        }
+                    }
+                }
+
+                button {
+                    border: none;
+                    border-radius: 10px;
+                    padding: 6px 12px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 10px;
+                    background: #EAEAEA;
+                    color: #797979;
+                    font-size: 15px;
+                    font-weight: 500;
+                    line-height: 18px;
+                    font-family: 'PP Neue Montreal', sans-serif;
+
+                    svg {
+                        width: 14px;
+                        height: 14px;
+                    }
+                }
+
+                .api-ref-dropdown-main {
+
+                    &.open {
+                        max-height: 500px;
+                        animation: Dropdown 0.5s ease-in-out;
+                    }
+                }
+
+                .recipes-dropdown-main {
+
+                    &.open {
+                        max-height: 500px;
+                        animation: Dropdown 1s ease-in-out;
+                    }
+                }
+
+                .api-ref-dropdown-main,
+                .recipes-dropdown-main {
+                    margin: 10px 0 0 12px;
+                    padding: 0 8px;
+                    border-left: 1px solid rgba(120, 120, 120, 0.25);
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    max-height: 0;
+                    overflow: hidden;
+                    transition: max-height 0.3s ease-in-out;
+
+                    &.open {
+                        max-height: 500px;
+                    }
+
+                    @keyframes Dropdown {
+                        0% {
+                            max-height: 0;
+                        }
+
+                        100% {
+                            max-height: 500px;
+                        }
+                    }
+
+                    .api-ref-dropdown-button,
+                    .recipes-dropdown-button {
+                        padding: 6px 12px;
+                        color: #797979;
+                        font-size: 15px;
+                        font-weight: 500;
+                        line-height: 18px;
+                        font-family: 'PP Neue Montreal', sans-serif;
+                        transition: .3s ease-in-out;
+
+                        &:hover {
+                            transition: .3s ease-in-out;
+                            opacity: .8;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .developer-page-main-centered-content {
+        height: 100vh;
+        overflow-y: auto;
+        display: flex;
+        justify-content: center;
+        align-items: start;
+
+        .developer-page-main-centered-content-alignment {
+            max-width: 1152px;
+            margin: 0 auto;
+            padding: 64px 48px 0;
+        }
+    }
+
+    .developer-page-main-right-eye {
+        width: 100%;
+        height: 100%;
+        padding: 64px 40px 0;
+        box-sizing: border-box;
+        position: sticky;
+        top: 0;
+        left: 0;
+
+        .dev-page-right-flx {
+            display: flex;
+            flex-direction: column;
+
+            p {
+                font-size: 12px;
+                font-weight: 500;
+                line-height: 19px;
+                word-spacing: 5px;
+                margin: 0 0 16px 0;
+                color: #797979;
+                font-family: 'PP Neue Montreal', sans-serif;
+                text-transform: uppercase;
+            }
+        }
+    }
+}

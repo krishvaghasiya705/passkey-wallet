@@ -3,7 +3,7 @@ import DefaultLayout from "./defaultLayout";
 import Home from "../module/home";
 import Playground from "../module/playground";
 import Errorpage from "../module/Erropage";
-// import Developer from "../module/devloper";
+import Developer from "../module/devloper";
 
 const router = createBrowserRouter([
     {
@@ -18,14 +18,14 @@ const router = createBrowserRouter([
                     return null;
                 },
             },
-            // {
-            //     path: "/developer",
-            //     element: <Developer />,
-            //     loader: () => {
-            //         document.body.style.backgroundColor = "#fff";
-            //         return null;
-            //     },
-            // },
+            {
+                path: "/developer",
+                element: <Developer />,
+                loader: () => {
+                    document.body.style.backgroundColor = "#fff";
+                    return null;
+                },
+            },
             {
                 path: "/playground",
                 element: <Playground />,

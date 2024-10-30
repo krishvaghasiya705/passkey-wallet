@@ -37,7 +37,7 @@ export default function Homefocussection() {
         // Video animation
         gsap.fromTo(videoRef.current,
             {
-                y: 100,
+                y: -500,
                 opacity: 0
             },
             {
