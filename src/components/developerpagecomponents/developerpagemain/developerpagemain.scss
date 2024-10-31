@@ -164,6 +164,48 @@
                 font-family: 'PP Neue Montreal', sans-serif;
                 text-transform: uppercase;
             }
+
+            a {
+                margin: 5px 0;
+                color: #797979;
+                font-size: 15px;
+                font-weight: 500;
+                line-height: 22px;
+                font-family: 'PP Neue Montreal', sans-serif;
+            }
+        }
+
+        .reduce-bx-main {
+            border-top: 1px solid #e5e7eb;
+            margin: 32px 0 0 0;
+            padding: 32px 0 80px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            max-width: 144px;
+
+            svg {
+                width: 32px;
+                height: 32px;
+            }
+
+            p {
+                font-size: 15px;
+                font-weight: 500;
+                line-height: 18px;
+                color: #181818;
+                font-family: 'PP Neue Montreal', sans-serif;
+            }
+            
+            a {
+                font-size: 13px;
+                color: #181818;
+                font-weight: 500;
+                line-height: 28px;
+                text-transform: uppercase;
+                font-family: 'PP Neue Montreal', sans-serif;
+                text-decoration-line: underline;
+            }
         }
     }
 }
